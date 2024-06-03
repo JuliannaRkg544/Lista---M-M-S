@@ -131,6 +131,7 @@ h1 {
     border-radius: 4px;
     padding: 8px 20px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 button {
@@ -145,6 +146,7 @@ button {
 
 #resetButton {
     background-color: #dc3545;
+    cursor: pointer;
     color: #fff;
 }
 
@@ -183,4 +185,40 @@ button {
     }
 }
 
-/* Classe para aplicar o fade in */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 32px;
+        top: 20px;
+    }
+
+    .fila {
+        flex-direction: column;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -40%);
+    }
+
+    .element,
+    .element2,
+    .servico {
+        height: 40px;
+        width: 40px;
+        margin: 10px;
+    }
+
+    .container {
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 30px;
+    }
+
+    #timer {
+        font-size: 36px;
+    }
+
+    .end-button {
+        font-size: 30px;
+        bottom: 20px;
+    }
+}

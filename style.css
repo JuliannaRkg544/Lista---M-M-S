@@ -1,0 +1,186 @@
+* {
+    box-sizing: border-box;
+    background-color: #fafab2;
+
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    font-family: "Comic Neue", cursive;
+}
+
+h1 {
+    position: fixed;
+    top: 40px;
+    left: calc(45% - 50px);
+    font-size: 40px;
+    font-family: "Comic Neue", cursive;
+    font-weight: 500;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.sistema {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 180px;
+}
+
+.fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-70%, -50px);
+}
+
+.element {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #ff6961;
+    margin: 20px;
+    animation: fall 1s ease-out forwards;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.element2 {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #ff6961;
+    margin: 0px;
+    animation: fall 2s ease-out forwards;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.element:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.slash {
+    width: 30px;
+    height: 10px;
+    background-color: #696969;
+    margin: 70px 20px;
+    animation: fall 1s ease-out forwards;
+
+}
+
+.hidden {
+    display: none !important;
+}
+
+.servico {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #f67828;
+    margin: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fall 1s ease-out forwards;
+
+}
+
+.fade-out {
+    animation: fadeOut 1.5s forwards;
+}
+
+.fade-in {
+    animation: fadeIn 2s forwards;
+}
+
+.container {
+    position: fixed;
+    top: 100px;
+    left: calc(44% - 50px);
+    font-size: 40px;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#timer {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.end-button {
+    position: fixed;
+    position: fixed;
+    bottom: 40px;
+    left: calc(46% - 50px);
+    font-size: 40px;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 4px;
+    padding: 8px 20px;
+    font-weight: 600;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#resetButton {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Classe para aplicar o fade in */

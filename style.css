@@ -21,7 +21,6 @@ h1 {
     font-size: 40px;
     font-family: "Comic Neue", cursive;
     font-weight: 500;
-    text-decoration: underline;
     text-align: center;
 }
 
@@ -29,7 +28,26 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+
     margin-right: 180px;
+}
+
+.container2 {
+    position: fixed;
+    top: 100px;
+    left: calc(35% - 50px);
+    font-size: 40px;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.medidas {
+    font-size: 26px;
+    background-color: #fff;
 }
 
 .fila {
@@ -49,25 +67,10 @@ h1 {
     background-color: #ff6961;
     margin: 20px;
     animation: fall 1s ease-out forwards;
-    cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.element2 {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background-color: #ff6961;
-    margin: 0px;
-    animation: fall 2s ease-out forwards;
-    cursor: pointer;
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
 
-.element:hover {
-    transform: scale(1.1);
-    filter: brightness(1.2);
-}
 
 .slash {
     width: 30px;
@@ -83,6 +86,7 @@ h1 {
 }
 
 .servico {
+
     height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -92,6 +96,7 @@ h1 {
     justify-content: space-between;
     align-items: center;
     animation: fall 1s ease-out forwards;
+    display: block;
 
 }
 
@@ -100,13 +105,15 @@ h1 {
 }
 
 .fade-in {
+    display: block;
     animation: fadeIn 2s forwards;
 }
 
 .container {
+
     position: fixed;
     top: 100px;
-    left: calc(44% - 50px);
+    left: calc(46% - 50px);
     font-size: 40px;
     text-align: center;
     background-color: #fff;
@@ -116,6 +123,7 @@ h1 {
 }
 
 #timer {
+
     font-size: 48px;
     margin-bottom: 20px;
 }

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação Fila M/M/S</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Simulação de Fila M/M/S</h1>
+        <div class="controls">
+            <label for="arrivalRate">Taxa de Chegada (λ):</label>
+            <input type="number" id="arrivalRate" value="1">
+            <label for="serviceRate">Taxa de Serviço (μ):</label>
+            <input type="number" id="serviceRate" value="1">
+            <label for="servers">Número de Servidores (s):</label>
+            <input type="number" id="servers" value="1">
+            <button id="startButton">Iniciar Simulação</button>
+        </div>
+        <div class="simulation">
+            <div id="queue"></div>
+            <div id="servers"></div>
+        </div>
+    </div>
+    <script>
+
+        // script.js
+
+        document.getElementById('startButton').addEventListener('click', startSimulation);
+
+        function startSimulation() {
+            const arrivalRate = parseFloat(document.getElementById('arrivalRate').value);
+            const serviceRate = parseFloat(document.getElementById('serviceRate').value);
+            const servers = parseInt(document.getElementById('servers').value);
+
+            if (arrivalRate <= 0 || serviceRate <= 0 || servers <= 0) {
+                alert('Por favor, insira valores positivos para todos os parâmetros.');
+                return;
+            }
+
+            const queueElement = document.getElementById('queue');
+            const serversElement = document.getElementById('servers');
+
+            queueElement.innerHTML = '';
+            serversElement.innerHTML = '';
+
+            for (let i = 0; i < servers; i++) {
+                const serverDiv = document.createElement('div');
+                serverDiv.classList.add('server');
+                serverDiv.innerText = `Servidor ${i + 1}: Livre`;
+                serversElement.appendChild(serverDiv);
+            }
+
+            const interArrivalTime = 1 / arrivalRate;
+            const serviceTime = 1 / serviceRate;
+
+            function arriveCustomer() {
+                const customerDiv = document.createElement('div');
+                customerDiv.classList.add('customer');
+                customerDiv.innerText = 'Cliente';
+                queueElement.appendChild(customerDiv);
+
+                setTimeout(arriveCustomer, interArrivalTime * 1000);
+            }
+
+            function serveCustomer() {
+                const freeServers = Array.from(document.querySelectorAll('.server'))
+                    .filter(server => server.innerText.includes('Livre'));
+
+                if (freeServers.length > 0 && queueElement.children.length > 0) {
+                    const customer = queueElement.children[0];
+                    queueElement.removeChild(customer);
+
+                    const server = freeServers[0];
+                    server.innerText = 'Servidor: Ocupado';
+
+                    setTimeout(() => {
+                        server.innerText = 'Servidor: Livre';
+                        serveCustomer();
+                    }, serviceTime * 1000);
+                }
+
+                setTimeout(serveCustomer, 100);
+            }
+
+            arriveCustomer();
+            serveCustomer();
+        }
+
+    </script>
+</body>
+
+</html>

@@ -5,7 +5,7 @@ function sortearValor() {
     return parseInt(valor);
 }
 
-let qtd = 3
+let qtd = sortearValor()
 
 let sistema = document.createElement("div");
 let div = document.querySelector("#div")
